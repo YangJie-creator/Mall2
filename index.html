@@ -82,6 +82,7 @@
 				margin-left: -52.5px;
 				box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.3);
 				padding-left: 6px;
+				background-color: #fff;
 				/* 动画 */
 				height: 0;
 				overflow: hidden;
@@ -107,10 +108,12 @@
 				text-align: center;
 				line-height: 1;
 				font-size: 14px;
+				background-color: #fff;
 				/* 动画 */
 				height: 0px;
 				overflow: hidden;
 				transition: height 0.3s ease 0s;
+				z-index: 10;
 			}
 			.site-topbar .header-nav .submenu:hover .app-download {
 				height: 148px;
@@ -162,6 +165,7 @@
 				right: 0px;
 				width: 316px;
 				height: 100px;
+				background-color: #fff;
 				color: #333;
 				text-align: center;
 				line-height: 100px;
@@ -170,6 +174,7 @@
 				height: 0px;
 				overflow: hidden;
 				transition: height 0.3s ease 0s;
+				z-index: 10;
 			}
 			.site-topbar .header-cart:hover .cart-list {
 				height: 100px;
@@ -366,7 +371,7 @@
 			<!-- site-topbar end -->
 			<!-- site-header start -->
 			<div class="site-header">
-				<div class="container">
+				<div class="container clearfix">
 					<div class="header-logo">
 						<a href="#">
 							<img src="./images/logo.png" alt="" width="48" height="56" />
