@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "PingFang-SC-Regular";
+  src: url(../fonts/PingFang-SC-Regular.ttf) format('truetype');
+}
+
+body {
+  font: 14px/1.5 PingFang-SC-Regular, MicrosoftYaHei, ArialMT;
+  color: #333;
+  background-color: #fff;
+  min-width: 1226px;
+}
+
+.container {
+  width: 1226px;
+  margin: 0 auto;
+}
+
+.clearfix::after {
+  display: block;
+  content: '';
+  clear: both;
+}

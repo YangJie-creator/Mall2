@@ -7,19 +7,397 @@
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<title>Mall</title>
+		<link rel="stylesheet" href="./css/base.css" />
+		<link rel="stylesheet" href="./css/global.css" />
+		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" href="./fonts/iconfont.css" />
+		<style>
+			/* header start */
+			.site-topbar {
+				height: 40px;
+				background-color: #333;
+			}
+			/* header-nav start */
+			.site-topbar .header-nav {
+				float: left;
+				height: 40px;
+			}
+			.site-topbar .header-nav > ul > li {
+				float: left;
+				margin-right: 15px;
+				line-height: 40px;
+			}
+			.site-topbar .header-nav > ul > li a {
+				font-size: 12px;
+				color: #b0b0b0;
+			}
+
+			/* 有下拉的选项 */
+			.site-topbar .header-nav .submenu {
+				position: relative;
+				padding-right: 12px;
+			}
+			/* 小箭头 */
+			.site-topbar .header-nav .submenu::after {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				display: block;
+				content: '';
+				width: 5px;
+				height: 5px;
+				border-right: 1px solid #b0b0b0;
+				border-bottom: 1px solid #b0b0b0;
+				transform: translateY(-3px) rotate(45deg);
+				/* 动画 */
+				transition: transform 0.3s ease 0s;
+			}
+			.site-topbar .header-nav .submenu:hover::after {
+				transform: translateY(-1px) rotate(225deg);
+			}
+			/* 实心三角形 */
+			.site-topbar .header-nav .submenu::before {
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				margin-left: -6px;
+				display: block;
+				content: '';
+				width: 0;
+				height: 0;
+				border: 6px solid transparent;
+				border-bottom-color: #fff;
+				/* 动画 */
+				display: none;
+			}
+			.site-topbar .header-nav .submenu:hover::before {
+				display: block;
+			}
+			/* 云服务下拉列表 */
+			.site-topbar .header-nav .submenu .cloud-list {
+				position: absolute;
+				top: 40px;
+				left: 50%;
+				width: 105px;
+				margin-left: -52.5px;
+				box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.3);
+				padding-left: 6px;
+				/* 动画 */
+				height: 0;
+				overflow: hidden;
+				transition: height 0.3s ease 0s;
+			}
+			.site-topbar .header-nav .submenu:hover .cloud-list {
+				height: 155px;
+			}
+			.site-topbar .header-nav .submenu .cloud-list > li {
+				line-height: 30px;
+			}
+			.site-topbar .header-nav .submenu .cloud-list > li img {
+				vertical-align: -3px;
+			}
+			/* 下载app */
+			.site-topbar .header-nav .submenu .app-download {
+				position: absolute;
+				top: 40px;
+				left: 50%;
+				margin-left: -62px;
+				/* padding: 18px; */
+				box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.3);
+				text-align: center;
+				line-height: 1;
+				font-size: 14px;
+				/* 动画 */
+				height: 0px;
+				overflow: hidden;
+				transition: height 0.3s ease 0s;
+			}
+			.site-topbar .header-nav .submenu:hover .app-download {
+				height: 148px;
+			}
+			.site-topbar .header-nav .submenu .app-download img {
+				margin: 18px;
+				margin-bottom: 12px;
+			}
+			/* header-info start */
+			.site-topbar .header-info {
+				float: right;
+				height: 40px;
+			}
+			.site-topbar .header-info > ul > li {
+				float: left;
+				margin-right: 15px;
+				line-height: 40px;
+			}
+			.site-topbar .header-info > ul > li a {
+				font-size: 12px;
+				color: #b0b0b0;
+			}
+			/* header-cart start */
+			.site-topbar .header-cart {
+				position: relative;
+				float: right;
+			}
+			.site-topbar .header-cart .cart-mini {
+				padding: 0 20px;
+				font-size: 12px;
+				color: #b0b0b0;
+				line-height: 40px;
+				background-color: #424242;
+				height: 40px;
+			}
+			.site-topbar .header-cart .cart-mini em {
+				font-size: 16px;
+				/* color: #b0b0b0; */
+				vertical-align: -1px;
+			}
+			.site-topbar .header-cart .cart-mini:hover {
+				background-color: #fff;
+				color: #ff6a00;
+			}
+			/* 购物车列表 */
+			.site-topbar .header-cart .cart-list {
+				position: absolute;
+				top: 40px;
+				right: 0px;
+				width: 316px;
+				height: 100px;
+				color: #333;
+				text-align: center;
+				line-height: 100px;
+				box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.05);
+				/* 动画 */
+				height: 0px;
+				overflow: hidden;
+				transition: height 0.3s ease 0s;
+			}
+			.site-topbar .header-cart:hover .cart-list {
+				height: 100px;
+			}
+			/* site-topbar end */
+			/* site-header start */
+			.site-header {
+				height: 100px;
+			}
+			.site-header .header-logo {
+				float: left;
+				margin-top: 23px;
+			}
+			.site-header .header-logo a:active img {
+				transform: scale(0.9);
+			}
+			.site-header .header-nav {
+				float: left;
+			}
+			.site-header .header-nav .nav-list {
+				margin-left: 184px;
+			}
+			.site-header .header-nav .nav-list > li {
+				float: left;
+				padding: 38px 10px;
+			}
+			.site-header .header-nav .nav-list > li > a {
+				font-size: 16px;
+				color: #333;
+			}
+			.site-header .header-nav .nav-list > li > a:hover {
+				color: #ff6a00;
+			}
+			/* 搜索框 */
+			.site-header .header-search {
+				width: 296px;
+				float: right;
+				background-color: wheat;
+				margin-top: 25px;
+			}
+			.site-header .header-search .search-text {
+				height: 52px;
+				width: 244px;
+				border: 1px solid #e0e0e0;
+				border-right: none;
+				color: #333;
+				line-height: 50px;
+				padding: 0 11px;
+				float: left;
+				box-sizing: border-box;
+			}
+			.site-header .header-search .search-btn {
+				display: block;
+				width: 52px;
+				height: 52px;
+				background-color: #fff;
+				float: left;
+				border: 1px solid #e0e0e0;
+				/* border-left: none; */
+				box-sizing: border-box;
+				font-size: 18px;
+				text-align: center;
+				line-height: 50px;
+				color: #aaaaaa;
+			}
+			.site-header .header-search .search-btn:hover {
+				background-color: #ff6a00;
+				color: #fff;
+				border-color: #ff6a00;
+			}
+			.site-header .header-search:hover .search-text,
+			.site-header .header-search:hover .search-btn {
+				border-color: #bebebe;
+			}
+			/* 鼠标点击获取焦点，边框样式停留 */
+			.site-header .header-search .search-text:focus,
+			.site-header .header-search .search-text:focus + .search-btn {
+				border-color: #ff6a00;
+			}
+
+			/* site-header end */
+		</style>
 	</head>
 	<body>
 		<header class="header">
+			<!-- site-topbar start -->
 			<div class="site-topbar">
-				<div class="header-nav"></div>
-				<div class="header-info"></div>
-				<div class="header-cart"></div>
+				<div class="container clearfix">
+					<div class="header-nav">
+						<ul>
+							<li><a href="#">手机商城</a></li>
+							<li><a href="#">MINI</a></li>
+							<li><a href="#">IoT</a></li>
+							<li class="submenu active">
+								<a href="#">云服务</a>
+								<ul class="cloud-list">
+									<li>
+										<a href="#">
+											<img
+												src="./images/shoujizhuti_08tongxunlu.png"
+												alt=""
+												width="16"
+												height="16"
+											/>
+											通讯录
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img
+												src="./images/shoujizhuti_05duanxin.png"
+												alt=""
+												width="16"
+												height="16"
+											/>
+											短信
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img
+												src="./images/shoujizhuti_03xiangce.png"
+												alt=""
+												width="16"
+												height="16"
+											/>
+											云相册
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img
+												src="./images/shoujizhuti_25xiazai.png"
+												alt=""
+												width="16"
+												height="16"
+											/>
+											手机云盘
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img
+												src="./images/shoujizhuti_15bianqian.png"
+												alt=""
+												width="16"
+												height="16"
+											/>
+											笔记（便签）
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li><a href="#">手机数科</a></li>
+							<li><a href="#">升品</a></li>
+							<li class="submenu active"><a href="#">智能开发平台</a></li>
+							<li><a href="#">企业团购</a></li>
+							<li><a href="#">资质证照</a></li>
+							<li><a href="#">协议规则</a></li>
+							<li class="submenu active">
+								<a href="#">下载app</a>
+								<div class="app-download">
+									<img
+										src="./images/二维码.png"
+										alt=""
+										width="86"
+										height="86"
+									/>
+									手机商城app
+								</div>
+							</li>
+							<li><a href="#">智能生活</a></li>
+							<li><a href="#">Melect Nocation</a></li>
+						</ul>
+					</div>
+					<!-- header-nav end -->
+					<div class="header-cart">
+						<div class="cart-mini">
+							<em class="iconfont icon-gouwuche1"></em>
+							购物车
+							<span>(0)</span>
+							<div class="cart-list">购物车中还没有商品，赶紧选购吧！</div>
+						</div>
+					</div>
+					<div class="header-info">
+						<ul>
+							<li><a href="#">登录</a></li>
+							<li><a href="#">注册</a></li>
+							<li><a href="#">消息通知</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
+			<!-- site-topbar end -->
+			<!-- site-header start -->
 			<div class="site-header">
-				<div class="header-logo"></div>
-				<div class="header-menu"></div>
-				<div class="header-search"></div>
+				<div class="container">
+					<div class="header-logo">
+						<a href="#">
+							<img src="./images/logo.png" alt="" width="48" height="56" />
+						</a>
+					</div>
+					<nav class="header-nav">
+						<ul class="nav-list">
+							<li><a href="#">Mini手机</a></li>
+							<li><a href="#">Pidmi手机</a></li>
+							<li><a href="#">电视</a></li>
+							<li><a href="#">笔记本</a></li>
+							<li><a href="#">平板</a></li>
+							<li><a href="#">家电</a></li>
+							<li><a href="#">路由器</a></li>
+							<li><a href="#">服务中心</a></li>
+							<li><a href="#">社区</a></li>
+						</ul>
+					</nav>
+					<div class="header-search">
+						<input
+							type="text"
+							class="search-text"
+							placeholder="aibiancheng"
+							name=""
+							id=""
+						/>
+						<a href="" class="search-btn iconfont icon-fangdajing"></a>
+					</div>
+				</div>
 			</div>
 		</header>
+		<!-- header end -->
 	</body>
 </html>
